@@ -1,25 +1,25 @@
-function buscarProduto(){
-    retur new Promise((resolve, reject)=>{
+function buscarProduto(id){
+    return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             if(id === 1){
-                resolve({id: 1, nome: "notebook",preco:3500});
-
+                resolve({id: 1, nome: "Notebook", preco: 3500});
             }else{
-                reject(new erro("produto nao enrontra."))
+                reject(new Error("Produto não encontrado"))
             }
-        },1500);
-    }),
+        },1500)
+    });
 }
 
 async function executar(){
-    try{
-        console.log("produto = await buscarProduto(1)");
-        console.log("produto encontra");
-        console.lolg("produto");
-    }catch (erro) {
-        console.log("Ocorreu um erroo");
-        console.log("erro.messange")
+    try {
+        const produto = await buscarProduto(1);
+        console.log("Produto encotrado"); 
+        console.log(produto);
+    } catch (error) {
+        console.log("Ocorreu um erro");
+        console.log(error.message)
     }
- }
- 
+}
+
+executar()
 
